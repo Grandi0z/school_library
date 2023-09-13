@@ -19,4 +19,5 @@ class Person
       false
     end
   end
+  private :of_age?
 end
