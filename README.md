@@ -78,7 +78,7 @@ Before to run the program, verify that you have Ruby installed on your OS runnin
 Run the following command inside the project folder:
 1. Open your terminal and navigate to the root directory of your project.
 2. Run `IRB`
-3. require the files you want to use. Ex: `require ./app.rb`
+3. require the files you want to use. Ex: `require "./app.rb"`
 4. Now you are ready
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -145,6 +145,6 @@ Special Thanks to the Microverse and Micronauts.
 
 ## 📝 License <a name="license"></a>
 
-This project is [MIT]() licensed.
+This project is [MIT](https://github.com/Grandi0z/school_library/blob/build/LICENSE) licensed.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
