@@ -1,4 +1,6 @@
+require_relative 'nameable'
 class Person
+  include Nameable
   def initialize(age, name = 'Unknown', parent_permission: true)
     @id = Random.rand(0..1000)
     @name = name
@@ -19,5 +21,10 @@ class Person
       false
     end
   end
+
+  def correct_name
+    @name
+  end
+
   private :of_age?
 end
