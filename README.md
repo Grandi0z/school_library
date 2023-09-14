@@ -7,8 +7,8 @@
   <h3><b>School Library</b></h3>
 
 </div>
-# 📗 Table of Contents
 
+# 📗 Table of Contents
 - [📗 Table of Contents](#-table-of-contents)
 - [📖 School Library ](#-school-library-)
   - [🛠 Built With ](#-built-with-)
@@ -17,7 +17,7 @@
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
     - [Setup](#setup)
-    - [Useage](#useage)
+    - [Usage](#usage)
     - [Run tests](#run-tests)
     - [Deployment](#deployment)
   - [👥 Authors ](#-authors-)
@@ -48,6 +48,7 @@ School Library
 ### Key Features <a name="key-features"></a>
 
 - **Manage Books**
+- **Add new students or teachers**
 - **Record the data of the person who borrows the books**
 
 ## Getting Started
@@ -77,7 +78,7 @@ Before to run the program, verify that you have Ruby installed on your OS runnin
 ```
 --->
 
-### Useage
+### Usage
 
 Run the following command inside the project folder:
 1. Open your terminal and navigate to the root directory of your project.
