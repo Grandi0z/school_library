@@ -32,7 +32,12 @@
 
 School Library 
 
-**School Library** is a tool that helps the librarian to keep track of the books and the people who borrow them.
+**School Library** is a tool that helps the librarian to keep track of the books and the people who borrow them.  
+With this app, you can:
+- Add new students or teachers to the library database, with their name, ID, and contact information.
+- Add new books to the library inventory, with their title, author, genre, and ISBN number.
+Save records of who borrowed a given book and when, with the option to mark the book as returned or overdue.
+- Search for books or borrowers using various criteria, such as name, genre, or ID.
 
 ## 🛠 Built With <a name="built-with"></a>
 

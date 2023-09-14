@@ -1,10 +1,10 @@
 require_relative 'nameable'
 
-class EditName
-  include Nameable
+class EditName < Nameable
   attr_accessor :nameable
 
   def initialize(nameable)
+    super()
     @nameable = nameable
   end
 
