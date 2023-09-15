@@ -4,7 +4,7 @@
 <img src="./assets/icon/Grandiose.png" alt="logo" width="140"  height="auto" />
   <br/>
 
-  <h3><b>School Library</b></h3>
+  <!-- <h3><b>School Library</b></h3> -->
 
 </div>
 
@@ -29,8 +29,6 @@
 
 
 # 📖 School Library <a name="about-project"></a>
-
-School Library 
 
 **School Library** is a tool that helps the librarian to keep track of the books and the people who borrow them.  
 With this app, you can:
