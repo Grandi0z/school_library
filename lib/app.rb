@@ -6,30 +6,73 @@ require_relative 'capitalize_decorator'
 require_relative 'book'
 require_relative 'rental'
 
+class App
+  
+  def create_book(books)
+    book_command = ["Title", "Author"]
+    book_elment = get_chomp(book_command)
+    books.push(Book.new(book_elment["Title"], book_elment["Author"]))
+  end
 
+  def get_chomp(arr)
+    received = {}
+    arr.each { |elt| 
+      puts "#{elt} :"
+      value = gets.chomp
+      received[elt] = value
+    }
+    received # return the hash
+  end
 
-Person.new(4, 'Rex', parent_permission: false)
+  def list_books
+    books.map { |book| "Title: #{book.title}, Author: #{book.author}" }
+  end
 
-person = Person.new(22, 'maximilianus')
-puts person.correct_name
-capitalized_person = CapitalizeDecorator.new(person)
-puts capitalized_person.correct_name
-capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-puts capitalized_trimmed_person.correct_name
+  def list_commands(arr)
+    arr.map.with_index { |command, index| puts "#{index + 1} - #{command}" }
+  end
 
-class1 = Classroom.new('A1')
-Classroom.new('B1')
-malick = Student.new(19, class1, 'malick')
-jacques = Student.new(17, class1, 'jacques', parent_permission: false)
-amy = Student.new(17, class1, 'amy', parent_permission: true)
+  def make_cases(arr)
+    lenght = arr.lenght
+  end
+  
+  def main_menu(books)
+    main_command = [
+      'List all books', 'List all people',
+      'Create a person', 'Create a book', 'Create a rental',
+      'List all rentals for a given person id', 'Exit'
+    ]
+    puts 'Welcomme to school library app'
+    puts 'Please choose an option by enrerin a number'
+    self.list_commands(main_command)
+    choice = gets.chomp
+    case choice.to_s
+      when '1'
+        puts choice
+      when '2'
+        puts choice
+      when '3'
+        puts choice
+      when '4'
+        self.create_book(books)
+      when '5'
+        puts choice
+      when '6'
+        puts choice
+      when '7'
+        puts choice
+      else
+        puts 'Wrong key'
+      end
+  end
+end
 
-book1 = Book.new('The great congo', 'Malumbu')
-book2 = Book.new('A short talk', 'Moses')
+def main
+  app = App.new 
+  @books = []
+  @people = []
+  @rental = []
+  app.main_menu(@books)
+end
 
-Rental.new('2017-11-11', amy, book1)
-Rental.new('2017-10-10', amy, book2)
-Rental.new('2017-10-10', jacques, book1)
-Rental.new('2017-10-10', malick, book1)
-Rental.new('2017-11-9', malick, book2)
-puts(amy.rentals.map { |rental| rental.book.title })
-puts(book2.rentals.map { |rental| rental.person.name })
+main
