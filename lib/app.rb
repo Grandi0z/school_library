@@ -6,8 +6,6 @@ require_relative 'capitalize_decorator'
 require_relative 'book'
 require_relative 'rental'
 
-
-
 Person.new(4, 'Rex', parent_permission: false)
 
 person = Person.new(22, 'maximilianus')
