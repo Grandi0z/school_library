@@ -75,4 +75,3 @@ class App
     execute_option(choice)
   end
 end
-
