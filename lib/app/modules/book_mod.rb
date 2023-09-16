@@ -15,10 +15,4 @@ module BookMod
     choice2 = gets.chomp
     @books[(choice2.to_i - 1)] || nil
   end
-
-  def list_books
-    puts 'Liste of books : '
-    @books.map { |book| puts "Title: '#{book.title}', Author: '#{book.author}'" }
-    main_menu
-  end
 end
