@@ -5,74 +5,73 @@ require_relative 'trimmer_decorator'
 require_relative 'capitalize_decorator'
 require_relative 'book'
 require_relative 'rental'
+require_relative 'modules/people_mod'
+require_relative 'modules/book_mod'
+require_relative 'modules/rental_mod'
 
 class App
-  
-  def create_book(books)
-    book_command = ["Title", "Author"]
-    book_elment = get_chomp(book_command)
-    books.push(Book.new(book_elment["Title"], book_elment["Author"]))
+  include People
+  include BookMod
+  include RentalMod
+  def initialize
+    @books = []
+    @people = []
+    @rentals = []
+    @classrooms = []
   end
 
+  # retrieve the data from the user
   def get_chomp(arr)
     received = {}
-    arr.each { |elt| 
-      puts "#{elt} :"
+    arr.each do |elt|
+      print "#{elt} :"
       value = gets.chomp
       received[elt] = value
-    }
+    end
     received # return the hash
   end
 
-  def list_books
-    books.map { |book| "Title: #{book.title}, Author: #{book.author}" }
-  end
-
+  # display the main menu commande
   def list_commands(arr)
     arr.map.with_index { |command, index| puts "#{index + 1} - #{command}" }
   end
 
-  def make_cases(arr)
-    lenght = arr.lenght
-  end
-  
-  def main_menu(books)
+  def main_header
     main_command = [
       'List all books', 'List all people',
       'Create a person', 'Create a book', 'Create a rental',
       'List all rentals for a given person id', 'Exit'
     ]
-    puts 'Welcomme to school library app'
-    puts 'Please choose an option by enrerin a number'
-    self.list_commands(main_command)
+    puts "\n Welcomme to school library app"
+    puts " Please choose an option by enrerin a number \n"
+    list_commands(main_command)
+  end
+
+  def execute_option(choice)
+    menu_options = {
+      '1' => :list_books,
+      '2' => :list_people,
+      '3' => :people_menu,
+      '4' => :create_book,
+      '5' => :create_rendal,
+      '6' => :list_my_rentals,
+      '7' => :exit_app
+    }
+    if menu_options[choice]
+      send(menu_options[choice]) # send invokes another method by its name
+    else
+      puts 'WRONG KEY'
+      main_menu
+    end
+  end
+
+  def exit_app
+    abort('Thank you for using this app.')
+  end
+
+  def main_menu
+    main_header
     choice = gets.chomp
-    case choice.to_s
-      when '1'
-        puts choice
-      when '2'
-        puts choice
-      when '3'
-        puts choice
-      when '4'
-        self.create_book(books)
-      when '5'
-        puts choice
-      when '6'
-        puts choice
-      when '7'
-        puts choice
-      else
-        puts 'Wrong key'
-      end
+    execute_option(choice)
   end
 end
-
-def main
-  app = App.new 
-  @books = []
-  @people = []
-  @rental = []
-  app.main_menu(@books)
-end
-
-main
