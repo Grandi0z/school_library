@@ -1,38 +1,44 @@
 require_relative 'app/app'
-# rubocop:disable Metrics/CyclomaticComplexity
-# rubocop:disable Metrics/MethodLength
+
+def list_commands
+  option_commande = [
+    'List all books', 'List all people',
+    'Create a person', 'Create a book', 'Create a rental',
+    'List all rentals for a given person id', 'Exit'
+  ]
+  option_commande.map.with_index { |command, index| puts "#{index + 1} - #{command}" }
+end
+
+def menu(response, app)
+  menu_options = {
+    '1' => 'list_books',
+    '2' => 'list_people',
+    '3' => 'people_menu',
+    '4' => 'create_book',
+    '5' => 'create_rendal',
+    '6' => 'list_my_rentals'
+  }
+
+  while response != '7'
+    puts 'Please choose an option by entering a number:'
+    list_commands
+
+    response = gets.chomp
+
+    if menu_options.key?(response)
+      app.send(menu_options[response])
+    else
+      puts 'Invalid option.'
+    end
+  end
+
+  puts 'Thank you for using this app.'
+end
+
 def main
   app = App.new
   response = nil # *Present the user with a list of options to perform.
   puts "Welcome to School Library App!\n\n"
-  while response != '7'
-    puts 'Please choose an option by enterin a number:'
-    puts '1 - List all books'
-    puts '2 - List all people'
-    puts '3 - Create a person'
-    puts '4 - Create a book'
-    puts '5 - Create a rental'
-    puts '6 - List all rentals for a given person id'
-    puts '7 - Exit' # *Lets users choose an option.
-    response = gets.chomp
-    case response
-    when '1'
-      app.list_books
-    when '2'
-      app.list_people
-    when '3'
-      app.people_menu
-    when '4'
-      app.create_book
-    when '5'
-      app.create_rendal
-    when '6'
-      app.list_my_rentals
-    when '7'
-      abort('Thank you for using this app.')
-    end
-  end
+  menu(response, app)
 end
-# rubocop:enable Metrics/MethodLength
-# rubocop:enable Metrics/CyclomaticComplexity
 main
